@@ -1,0 +1,412 @@
+tag:     a
+         ('class', 'brand')
+         ('href', '/Collaboratum/index.php')
+tag:     a
+         ('href', '/Collaboratum/index.php')
+tag:     a
+         ('href', '#aboutModal')
+         ('data-toggle', 'modal')
+tag:     a
+         ('href', '#helpModal')
+         ('data-toggle', 'modal')
+tag:     a
+         ('href', '#')
+         ('class', 'dropdown-toggle')
+         ('data-toggle', 'dropdown')
+tag:     a
+         ('href', 'http://binf1.memphis.edu/Collaboratum/views/subnet.php?startId=1&endId=28&title=Biology')
+tag:     a
+         ('href', 'http://binf1.memphis.edu/Collaboratum/views/subnet.php?startId=38&endId=57&title=Chemistry')
+tag:     a
+         ('href', 'http://binf1.memphis.edu/Collaboratum/views/subnet.php?startId=29&endId=38&title=Biomedical%20Engineering')
+tag:     a
+         ('class', 'explorer-toggle offset6')
+tag:     a
+         ('href', '#search')
+         ('data-toggle', 'tab')
+tag:     a
+         ('href', '#results')
+         ('data-toggle', 'tab')
+tag:     a
+         ('tabindex', '-1')
+         ('href', '#')
+         ('onclick', 'selectSearch(0);')
+         ('data-toggle', 'tooltip')
+         ('data-placement', 'right')
+         ('title', 'Conceptual search is a more abstract search that provides results which are conceptually similar')
+tag:     a
+         ('tabindex', '-1')
+         ('href', '#')
+         ('onclick', 'selectSearch(1);')
+         ('data-toggle', 'tooltip')
+         ('data-placement', 'right')
+         ('title', "Keyword search provides more 'concrete' results than Conceptual search")
+tag:     a
+         ('tabindex', '-1')
+         ('href', '#')
+         ('onclick', 'selectFilter(0);')
+tag:     a
+         ('tabindex', '-1')
+         ('href', '#')
+         ('onclick', 'selectFilter(1);')
+tag:     a
+         ('tabindex', '-1')
+         ('href', '#')
+         ('onclick', 'selectFilter(2);')
+tag:     a
+         ('tabindex', '-1')
+         ('href', '#')
+         ('onclick', 'selectFilter(3);')
+tag:     a
+         ('tabindex', '-1')
+         ('href', '#')
+         ('onclick', 'selectFilter(4);')
+         ('data-toggle', 'modal')
+         ('data-target', '#customFilterModal')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=359.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=355.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=345.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=370.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=373.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=337.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=354.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=339.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=351.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=368.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=356.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=341.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=350.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=353.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=371.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=352.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=367.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=398.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=397.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=476.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=477.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=361.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=360.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=344.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=307.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=399.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=400.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=313.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=312.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=347.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=349.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=384.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=369.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=346.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=335.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=386.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=380.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=381.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=374.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=382.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=383.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=378.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=387.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=379.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=377.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=376.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=336.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=455.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=358.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=322.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=323.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=385.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=348.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=342.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=357.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=388.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=572.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=573.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=375.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=329.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=310.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=311.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=330.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=885.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=333.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=672.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=334.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=389.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=325.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=883.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=324.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=390.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=363.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=392.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=391.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=396.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=395.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=744.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=364.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=394.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=393.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=327.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=326.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=372.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=340.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=402.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=740.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=708.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=993.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=523.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1146.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1145.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=401.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=328.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=878.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1147.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=980.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=707.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=994.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=934.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=843.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1011.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=314.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=315.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=478.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=949.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=406.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=331.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=332.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=521.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1170.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=842.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=981.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=979.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=365.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=362.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=366.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1001.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=502.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=933.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=895.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=343.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1176.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1156.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=664.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1138.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1139.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=938.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=445.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=940.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=941.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1079.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=517.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=501.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=923.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1052.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=666.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1137.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1051.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1136.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1135.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=503.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=738.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=995.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=988.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1159.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=662.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=752.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=835.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=655.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=515.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=304.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=528.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=516.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=989.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=879.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=506.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=303.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=847.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1019.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=728.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=811.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=529.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=404.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=671.0&searchString=cancer')
+tag:     a
+         ('href', '/Collaboratum/views/grantInfo.php?id=1160.0&searchString=cancer')
+tag:     a
+         ('class', 'pull-left')
+         ('href', '#')
+tag:     a
+         ('href', '#help1')
+tag:     a
+         ('href', '#help2')
+tag:     a
+         ('href', '#help3')
+tag:     a
+         ('name', 'help1')
+tag:     a
+         ('name', 'help2')
+tag:     a
+         ('name', 'help3')

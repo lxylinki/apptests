@@ -1,0 +1,392 @@
+#!/usr/bin/python
+import re
+import socket
+import sys
+from string import upper
+from string import Template
+from HTMLParser import HTMLParser
+
+
+# student id and passwd entered from cmd line
+if len(sys.argv) != 3:
+    print ('Usage: ./webcrawler [username] [password]')
+    sys.exit()
+
+neu_id = sys.argv[1]
+passwd = sys.argv[2]
+
+# store collected links
+all_links = []
+
+# store secret flags
+flags = []
+
+
+# HTTP status code: 
+# 200 OK, 302 FOUND, 301 MOVED PERMANENTLY, 403 FORBIDDEN, 404 NOT FOUND, 500 INTERNAL SERVER ERROR
+
+
+# Fakebook runs at server:80
+http_port = 80
+server_ip = '129.10.113.143'
+server_name = 'cs5700sp16.ccs.neu.edu'
+root_url = 'http://cs5700sp16.ccs.neu.edu'
+
+
+# get cookies
+fakebook_home = '/fakebook/'
+
+# post login info here
+login_page = '/accounts/login/'
+
+# referer
+login_form = '/accounts/login/?next=/fakebook/'
+
+# only crawl links with valid prefix
+domain_prefix = ['accounts','fakebook']
+
+# max num of chars in msgs
+max_len = 4096
+chunk_end = '0\r\n\r\n'
+
+
+# HTTP GET format for page downloading
+GET_CMD = 'GET $path HTTP/1.1\n'
+HOST = 'Host: cs5700sp16.ccs.neu.edu\n'
+# reuse socket default in HTTP/1.1
+#CONN = 'Connection: keep-alive\n'
+
+
+# HTTP POST format for login
+POST_CMD = 'POST $path HTTP/1.1\n'
+CONTYPE = 'Content-Type: application/x-www-form-urlencoded\n'
+CONLEN = 'Content-Length: {}\n' 
+COOKIE = 'Cookie: csrftoken={}; sessionid={}\n'
+
+
+# this one is only used during login:
+# login form post and the homepage get
+LOGIN_REFER = 'Referer: http://cs5700sp16.ccs.neu.edu/accounts/login/?next=/fakebook/\n'
+
+# login query string
+LOGIN_FORM_DATA = 'username={}&password={}&csrfmiddlewaretoken={}&next=%2Ffakebook%2F'
+
+# GET templates
+GET = GET_CMD + HOST + '\n'
+GET_WITH_COOKIES = GET + COOKIE + '\n'
+
+# GET template when log in
+LOGIN_GET = GET_CMD + HOST + COOKIE + '\n'
+
+
+# create a connected TCP socket
+def tcp_sock():
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    except OSError as sock_error:
+        sys.exit(sock_error.errno)
+    else:
+        return sock
+
+
+# connect a TCP socket
+def tcp_connect(sock, server, port):
+    try:
+        sock.connect((server, port))
+    except OSError as sock_conn_error:
+        sys.exit(sock_conn_error.errno)
+
+
+# if data is incomplete
+def incomplete_chunk(data_str):
+    if (re.search('Chunked:', data_str, re.IGNORECASE) and not(re.search(chunk_end, data_str, re.IGNORECASE))):
+        return True
+    else:
+        return False
+
+
+# while data is incomplete chunk retry recv
+def full_recv(sock, buflen):
+    data = sock.recv(buflen)
+    while incomplete_chunk(data):
+         rest_chunk = sock.recv(buflen)
+         data = data + rest_chunk
+         if rest_chunk == chunk_end:
+             break
+    return data
+
+
+
+
+# send/recv through established socket
+def send_req(sock, msg):
+    try:
+        sock.send(msg)
+    except OSError as sock_send_error:
+        sys.exit(sock_send_error.errno)
+    else:
+        try:
+            data = sock.recv(max_len)
+            #data = full_recv(sock, max_len)
+        except OSError as sock_recv_error:
+            sys.exit(sock_recv_error.errno)
+    #print data
+    return data
+
+
+
+# return True if msg is a POST
+def is_post(msg):
+    method = ((msg.splitlines()[0]).split())[0]
+    #print method
+    if upper(method) == 'POST':
+        return True
+    else:
+        return False
+
+
+# send/recv with retry:
+# - empty resp: resend
+# - incomplete resp: re recv
+# - fragmented resp: resend
+# - '500': resend
+# - '301'/'302': resend GET with new location
+
+def send_req_with_retry(server, port, resource, msg_temp):
+    sock = tcp_sock()
+    tcp_connect(sock, server, port)
+    msg = msg_temp.substitute(path = resource)
+    resp = send_req(sock, msg) 
+
+    if len(resp) == 0:
+        #print 'empty response'
+        while len(resp) == 0:
+            sock.shutdown(socket.SHUT_RDWR)
+            sock.close()
+            new_sock = tcp_sock()
+            tcp_connect(new_sock, server, port)
+            resp = send_req(new_sock, msg)
+        sock = new_sock
+
+    elif incomplete_chunk(resp):
+        #print 'incomplete data chunk'
+        while incomplete_chunk(resp):
+            resp = send_req(sock, msg)
+
+    elif get_status_code(resp) == -1:
+        #print 'fragmented response'
+        while get_status_code(resp) == -1:
+            resp = send_req(sock, msg)
+
+    elif get_status_code(resp) == '500':
+        #print '500 Internal Server Error'
+        while get_status_code(resp) == '500':
+            resp = send_req(sock, msg)
+    
+    elif (get_status_code(resp) == '301' or get_status_code(resp) == '302'):
+        #print '{} redirect'.format(get_status_code(resp))
+        if is_post(msg):
+            return resp
+        else:
+            new_url = extract_location(resp)
+            msg = msg_temp.substitute(path=new_url)
+            resp = send_req(sock, msg)
+    #print resp
+    return resp
+
+
+
+# construct POST msg template with cookies and query
+# use both cookies: [csrftoken, sessionid]
+def POST_msg_temp(usrname, passwd, cookies):
+    query = LOGIN_FORM_DATA.format(usrname, passwd, cookies[0])
+    header = POST_CMD + HOST + CONLEN.format(query.__len__())  + COOKIE.format(cookies[0], cookies[1])
+    return Template(header + '\n' + query + '\n')
+
+
+
+# retrieve response status code return -1 on error
+def get_status_code(resp_str):
+    if len(resp_str.splitlines()) <= 1:
+        return -1
+    else:
+        status = (resp_str.splitlines())[0]
+        #print(status)
+    
+    if len(status.split()) <= 1:
+        return -1
+    else:
+        status_code = status.split()[1]
+    return status_code
+
+
+
+# extract the cookie value from one line
+def extract_cookie(set_cookie_cmd):
+    return(re.split('\W+', set_cookie_cmd)[3])
+
+
+
+# extract new location from a non empty valid response
+def extract_location(resp_str):
+    for line in resp_str.splitlines():
+        match = re.search('Location: ', line)
+        if match:
+            return line.split('Location: ')[1]
+    return -1
+
+
+# retrieve all cookies in a non empty valid response
+def retrieve_cookies(resp_str):
+    cookies = ()
+    for line in resp_str.splitlines():
+        match = re.search('Set-Cookie: ', line)
+        if match:
+            cookies = cookies + ( (extract_cookie(line)), )
+    if not cookies:
+        #print('Error: Cannot receive cookies, invalid server response.\n')
+        return -1
+    return cookies
+
+
+
+# find hyper links in a html page
+class MyHTMLParser(HTMLParser):
+    def __init__(self):
+        HTMLParser.__init__(self)
+        self.linklist = []
+    def handle_starttag(self, tag, attrs):
+        if (tag == 'a' or tag == 'A'):
+            for attr in attrs:
+                self.linklist.append(attr[1])
+
+                
+
+
+# parse link src for new domain links
+def new_neighbors(src_link, link_resp):
+    new_links = []
+
+    parser = MyHTMLParser()
+    parser.feed(link_resp)
+
+    for link in parser.linklist:
+        #if link == src_link:
+        #    continue
+        #else:
+    	if link not in all_links:
+	    if len(link.split('/')) > 1:
+	        # check prefix
+	        if link.split('/')[1] in domain_prefix: 
+		    #print link
+		    new_links.append(link)
+    return new_links
+
+
+
+# search for flag on one page
+def flag_search(link_resp):
+    for line in link_resp.splitlines():
+        #match = re.search('<h2 class=\'secret_flag\' style="color:red">FLAG: ', line, re.IGNORECASE)
+        match = re.search('FLAG: ', line, re.IGNORECASE)
+        if match:
+            flag = line[match.end(): match.end() + 64]
+            all_links.append(flag)
+            print flag
+
+
+
+# GET the source of one link
+def get_source(sock, server, port, link, csrftk, sessid):    
+    login_get_temp = Template(LOGIN_GET.format(csrftk, sessid))
+    resp = send_req_with_retry(server, port, link, login_get_temp) 
+    return resp
+
+
+
+# process one link: search flag, collect unprocessed neighbors
+# return a list of unprocessed neighbors, None on 403/404 page
+def process_link(sock, server, port, link, csrftk, sessid):
+    # 1. download source
+    resp = get_source(sock, server, port, link, csrftk, sessid)
+
+    # 2. search for flags
+    flag_search(resp)
+    
+    # 3. collect un-crawled neighbors
+    if (get_status_code(resp) == '403' or get_status_code(resp) == '404'):
+        # '403'/'404': abandon link
+        return None
+    else:
+        return new_neighbors(link, resp)
+
+
+
+# traverse links
+def collect_links(server, port, start_link, csrftk, sessid):
+    stack = []
+    # a list with one element: current link
+    in_process = []
+    stack.append(start_link)
+
+    while ( len(stack) > 0 or len(in_process) > 0):
+        in_process.append(stack.pop())
+        current_link = in_process[0]
+        if current_link in all_links:
+            in_process.pop()
+            continue
+
+        #print '---------------------------------------------'
+        #print 'Processing ' + current_link
+        #for crawled_link in all_links:
+        #    print crawled_link
+        #print '{} links crawled.'.format(len(all_links))
+        #print '---------------------------------------------'
+        
+        sock = tcp_sock()
+        tcp_connect(sock, server, port)
+        new_neighbors = process_link(sock, server, port, current_link, csrftk, sessid)
+        if not new_neighbors:
+            all_links.append(in_process.pop())
+            continue
+        else:
+            for nlink in new_neighbors:
+                stack.append(nlink)
+            all_links.append(in_process.pop())
+    
+
+
+
+if __name__=='__main__':
+
+    # get cookies from login_form: this is a two tuple 
+    init_get_temp = Template(GET)
+    init_resp = send_req_with_retry(server_ip, http_port, login_form, init_get_temp)
+    cookies = retrieve_cookies(init_resp)
+
+    # post to login page to update sessionid
+    post_temp = POST_msg_temp(neu_id, passwd, cookies)
+    login_resp = send_req_with_retry(server_ip, http_port, login_page, post_temp) 
+    # this is a 302 redirect header of length 504
+    # print login_resp
+
+    # update sessionid: this is an one tuple
+    new_cookies = retrieve_cookies(login_resp)
+
+    # sessionid updated: logged in fakebook
+    CSRFTOKEN = cookies[0]
+    SESSIONID = new_cookies[0]
+
+    # use updated cookies to get fakebook homepage
+    login_get_temp = Template(LOGIN_GET.format(CSRFTOKEN, SESSIONID))
+
+    # this is a 200 header followed by fakebook homepage html
+    home_page = send_req_with_retry(server_ip, http_port, fakebook_home, login_get_temp)
+    #print home_page
+
+    homepage_links = new_neighbors(fakebook_home, home_page)
+    for link in homepage_links:
+    	collect_links(server_ip, http_port, link, CSRFTOKEN, SESSIONID)
+    #print '{} links crawled.'.format(len(all_links))
+
+
